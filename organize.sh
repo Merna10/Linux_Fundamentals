@@ -12,7 +12,9 @@ organize_files(){
     for file in "$directory"/*; do
         if [ -f "$file" ]; then
             extension="${file##*.}"
-            if [[ "$extension" == "$file" || "$extension" == "unknown" || "${file:0:1}" == "." ]];  then
+            filename=$(basename "$file")
+            echo 
+            if [[ "$extension" == "$file" || "$extension" == "unknown" ||  "${filename:0:1}" == "."  ]];  then
                 
                 if [ ! -d "$directory/misc" ]; then
                     mkdir "$directory/misc" 
